@@ -1,6 +1,7 @@
 import { isBot } from '../platform';
 import { isStaging } from '../url/helpers';
-import { WebSocketUtils } from '@deriv-com/utils'; // <-- Use the new app id getter
+import { WebSocketUtils } from '@deriv-com/utils';
+
 
 /*
  * Configuration values needed in js codes
@@ -81,9 +82,8 @@ export const getSocketURL = () => {
     const local_storage_server_url = window.localStorage.getItem('config.server_url');
     if (local_storage_server_url) return local_storage_server_url;
 
-    // Always use the correct base endpoint and app_id
-    const app_id = WebSocketUtils.getAppId();
-    return `wss://ws.derivws.com/websockets/v3?app_id=${app_id}`;
+    // Only return the host, not the full URL
+    return 'ws.derivws.com';
 };
 
 export const checkAndSetEndpointFromUrl = () => {

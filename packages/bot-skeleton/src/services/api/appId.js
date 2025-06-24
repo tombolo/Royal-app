@@ -4,15 +4,8 @@ import { getLanguage } from '@deriv/translations';
 import APIMiddleware from './api-middleware';
 
 export const generateDerivApiInstance = () => {
-    // getSocketURL() already includes wss://.../websockets/v3?app_id=...
-    let socket_url = getSocketURL();
-
-    // If you want to add language and brand, append them as query params
-    const url = new URL(socket_url);
-    url.searchParams.set('l', getLanguage());
-    url.searchParams.set('brand', website_name.toLowerCase());
-
-    const deriv_socket = new WebSocket(url.toString());
+    const socket_url = `wss://${getSocketURL()}/websockets/v3?app_id=${getAppId()}&l=${getLanguage()}&brand=${website_name.toLowerCase()}`;
+    const deriv_socket = new WebSocket(socket_url);
     const deriv_api = new DerivAPIBasic({
         connection: deriv_socket,
         middleware: new APIMiddleware({}),
