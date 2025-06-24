@@ -1,5 +1,6 @@
 import { isBot } from '../platform';
 import { isStaging } from '../url/helpers';
+import { WebSocketUtils } from '@deriv-com/utils';
 
 /*
  * Configuration values needed in js codes
@@ -79,6 +80,9 @@ export const getAppId = () => {
 export const getSocketURL = () => {
     const local_storage_server_url = window.localStorage.getItem('config.server_url');
     if (local_storage_server_url) return local_storage_server_url;
+
+    const app_id = WebSocketUtils.getAppId();
+    return `wss://ws.derivws.com/websockets/v3?app_id=${app_id}`;
 };
 
 export const checkAndSetEndpointFromUrl = () => {
