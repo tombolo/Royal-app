@@ -27,11 +27,9 @@ const App = ({ passthrough }: TAppProps) => {
             <APIProvider>
                 <POIProvider>
                     <BreakpointProvider>
-                        <Router>
                         {Notifications && <Notifications />}
                         <Routes />
                         <ResetTradingPassword />
-                        </Router>
                     </BreakpointProvider>
                 </POIProvider>
             </APIProvider>
