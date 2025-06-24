@@ -1,14 +1,13 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-
+import { FaWhatsapp, FaInstagram, FaTelegramPlane, FaTiktok } from 'react-icons/fa';
 import { useRemoteConfig } from '@deriv/api';
 import { Div100vhContainer, Icon, MobileDrawer, ToggleSwitch } from '@deriv/components';
 import {
     useAccountSettingsRedirect,
     useAccountTransferVisible,
     useAuthorize,
-    useIsHubRedirectionEnabled,
     useOauth2,
     useOnrampVisible,
     useP2PSettings,
@@ -30,28 +29,6 @@ import MenuLink from './menu-link';
 import PlatformSwitcher from './platform-switcher';
 
 const ToggleMenuDrawer = observer(({ platform_config }) => {
-    
-
-    const social_media_links = [
-        {
-            id: 'instagram',
-            icon: FaInstagram,
-            text: 'Instagram',
-            url: 'https://www.instagram.com/gletraders/?igsh=MXdqdTRyYmx4OTR6OQ%3D%3D#',
-        },
-        {
-            id: 'telegram',
-            icon: FaTelegramPlane,
-            text: 'Telegram',
-            url: 'https://t.me/+9aI3zpSwoJw0ZDM0',
-        },
-        {
-            id: 'tiktok',
-            icon: FaTiktok,
-            text: 'TikTok',
-            url: 'https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1',
-        },
-    ];
     const { common, ui, client, traders_hub, modules } = useStore();
     const { app_routing_history, current_language } = common;
     const {
@@ -118,8 +95,6 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
         rest: { isSubscribed },
         p2p_settings,
     } = useP2PSettings();
-
-    const { isHubRedirectionEnabled } = useIsHubRedirectionEnabled();
 
     const TradersHubIcon = is_dark_mode ? 'IcAppstoreHomeDark' : 'IcAppstoreTradersHubHomeUpdated';
 
@@ -344,21 +319,6 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
         );
     };
 
-    const handleTradershubRedirect = () => {
-        if (isHubRedirectionEnabled && has_wallet) {
-            const PRODUCTION_REDIRECT_URL = 'https://hub.deriv.com/tradershub';
-            const STAGING_REDIRECT_URL = 'https://staging-hub.deriv.com/tradershub';
-            const redirectUrl = process.env.NODE_ENV === 'production' ? PRODUCTION_REDIRECT_URL : STAGING_REDIRECT_URL;
-
-            const url_query_string = window.location.search;
-            const url_params = new URLSearchParams(url_query_string);
-            const account_currency = url_params.get('account') || window.sessionStorage.getItem('account');
-
-            return `${redirectUrl}/redirect?action=redirect_to&redirect_to=home${account_currency ? `&account=${account_currency}` : ''}`;
-        }
-        return routes.traders_hub;
-    };
-
     return (
         <React.Fragment>
             <a id='dt_mobile_drawer_toggle' onClick={toggleDrawer} className='header__mobile-drawer-toggle'>
@@ -403,34 +363,54 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
 
                             <MobileDrawer.Body className={is_traders_hub_route || is_wallet_route ? 'no-padding' : ''}>
                                 <div className='header__menu-mobile-platform-switcher' id='mobile_platform_switcher' />
+
                                 <MobileDrawer.Item>
                                     <MenuLink
-                                        link_to={getStaticUrl('/')}
-                                        icon='IcDerivShortLogo'
-                                        text='Deriv.com'
-                                        onClickLink={toggleDrawer}
-                                    />
-                                </MobileDrawer.Item>
-                                <MobileDrawer.Item>
-                                    <MenuLink
-                                        link_to={handleTradershubRedirect()}
+                                        link_to={routes.traders_hub}
                                         icon={TradersHubIcon}
-                                        text={localize("GLE Trader's Hub")}
+                                        text={localize('GLE Trading Hub')}
                                         onClickLink={toggleDrawer}
                                         is_active={route === routes.traders_hub}
                                     />
                                 </MobileDrawer.Item>
-                                {route !== routes.traders_hub && (
-                                    <MobileDrawer.Item>
-                                        <MenuLink
-                                            link_to={routes.trade}
-                                            icon='IcTrade'
-                                            text={localize('Trade')}
-                                            onClickLink={toggleDrawer}
-                                            is_active={route === routes.trade}
-                                        />
-                                    </MobileDrawer.Item>
-                                )}
+                                <MobileDrawer.Item>
+                                    <a
+                                        href='https://www.instagram.com/gletraders?igsh=MXdqdTRyYmx4OTR6OQ=='
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='header__menu-mobile-link'
+                                    >
+                                        <FaInstagram className='header__menu-mobile-link-icon' />
+                                        <span className='header__menu-mobile-link-text'>Instagram</span>
+                                    </a>
+                                </MobileDrawer.Item>
+
+                                {/* Telegram */}
+                                <MobileDrawer.Item>
+                                    <a
+                                        href='https://t.me/+9aI3zpSwoJw0ZDM0'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='header__menu-mobile-link'
+                                    >
+                                        <FaTelegramPlane className='header__menu-mobile-link-icon' />
+                                        <span className='header__menu-mobile-link-text'>Telegram</span>
+                                    </a>
+                                </MobileDrawer.Item>
+
+                                {/* TikTok */}
+                                <MobileDrawer.Item>
+                                    <a
+                                        href='https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='header__menu-mobile-link'
+                                    >
+                                        <FaTiktok className='header__menu-mobile-link-icon' />
+                                        <span className='header__menu-mobile-link-text'>TikTok</span>
+                                    </a>
+                                </MobileDrawer.Item>
+
                                 {primary_routes_config.map((route_config, idx) =>
                                     getRoutesWithSubMenu(route_config, idx)
                                 )}
@@ -455,25 +435,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                         </div>
                                     </MobileDrawer.Item>
                                 )}
-
                                 {HelpCentreRoute()}
-
-                                {/* Add social media links - visible to all users */}
-                                {social_media_links.map(({ id, icon: IconComponent, text, url }) => (
-                                    <MobileDrawer.Item key={id}>
-                                        <a
-                                            href={url}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            className={classNames('header__menu-mobile-link')}
-                                        >
-                                            <IconComponent className='header__menu-mobile-link-icon' />
-                                            <span className='header__menu-mobile-link-text'>{text}</span>
-                                            <Icon icon='IcChevronRight' className='header__menu-mobile-link-chevron' />
-                                        </a>
-                                    </MobileDrawer.Item>
-                                ))}
-
                                 {is_logged_in ? (
                                     <React.Fragment>
                                         <MobileDrawer.Item
@@ -482,14 +444,46 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                                     ? ''
                                                     : 'header__menu-mobile-theme--trader-hub'
                                             }
-                                        >
-                                            <MenuLink
-                                                link_to={getStaticUrl('/responsible')}
-                                                icon='IcVerification'
-                                                text={localize('Responsible trading')}
-                                                onClickLink={toggleDrawer}
-                                            />
+                                        ></MobileDrawer.Item>
+
+                                        <MobileDrawer.Item>
+                                            <a
+                                                href='https://www.instagram.com/gletraders?igsh=MXdqdTRyYmx4OTR6OQ=='
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='header__menu-mobile-link'
+                                            >
+                                                <FaInstagram className='header__menu-mobile-link-icon' />
+                                                <span className='header__menu-mobile-link-text'>Instagram</span>
+                                            </a>
                                         </MobileDrawer.Item>
+
+                                        {/* Telegram */}
+                                        <MobileDrawer.Item>
+                                            <a
+                                                href='https://t.me/+9aI3zpSwoJw0ZDM0'
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='header__menu-mobile-link'
+                                            >
+                                                <FaTelegramPlane className='header__menu-mobile-link-icon' />
+                                                <span className='header__menu-mobile-link-text'>Telegram</span>
+                                            </a>
+                                        </MobileDrawer.Item>
+
+                                        {/* TikTok */}
+                                        <MobileDrawer.Item>
+                                            <a
+                                                href='https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1'
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='header__menu-mobile-link'
+                                            >
+                                                <FaTiktok className='header__menu-mobile-link-icon' />
+                                                <span className='header__menu-mobile-link-text'>TikTok</span>
+                                            </a>
+                                        </MobileDrawer.Item>
+
                                         {should_show_regulatory_information && (
                                             <MobileDrawer.Item className='header__menu-mobile-theme--trader-hub'>
                                                 <MenuLink
