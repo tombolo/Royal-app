@@ -88,15 +88,11 @@ const ClosingAccount = makeLazyLoader(
     () => <Loading />
 )();
 
+
 export type TPage404 = typeof Page404;
 
 // Order matters
 const initRoutesConfig = () => [
-    {
-        path: '/',
-        exact: true,
-        component: () => <Redirect to="/bot" />,
-    },
     {
         path: routes.account_closed,
         component: AccountClosed,

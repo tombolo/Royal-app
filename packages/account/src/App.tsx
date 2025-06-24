@@ -1,4 +1,5 @@
 import Routes from './Containers/routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ResetTradingPassword from './Containers/reset-trading-password';
 import NetworkStatusToastPopup from './Components/network-status-toast-popup/network-status-toast-popup';
 import { APIProvider } from '@deriv/api';
@@ -26,9 +27,11 @@ const App = ({ passthrough }: TAppProps) => {
             <APIProvider>
                 <POIProvider>
                     <BreakpointProvider>
+                        <Router>
                         {Notifications && <Notifications />}
                         <Routes />
                         <ResetTradingPassword />
+                        </Router>
                     </BreakpointProvider>
                 </POIProvider>
             </APIProvider>
