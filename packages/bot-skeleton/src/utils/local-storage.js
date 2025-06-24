@@ -2,8 +2,8 @@ import LZString from 'lz-string';
 import localForage from 'localforage';
 import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
-import AutoRobot from './bots/auto_robot_by_GLE1.xml';
-import OverUnderBot from './bots/over_under_bot_by_GLE.xml';
+import AutoRobot from './bots/Auto_robot_by_GLE1.xml';
+import OverUnderBot from './bots/Over_under_bot_by_GLE.xml';
 import StakelistBot from './bots/STAKELIST_BOT_Even_&_Odd.xml';
 import DerivMt from './bots/Under_7_Derived_with_MT.xml';
 
