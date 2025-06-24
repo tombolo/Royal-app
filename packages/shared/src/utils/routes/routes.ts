@@ -81,7 +81,7 @@ export const routes = {
 
     // Appstore
     old_traders_hub: '/appstore/traders-hub',
-    traders_hub: '/',
+    traders_hub: '/bot',
     onboarding: '/onboarding',
     compare_cfds: '/cfd-compare-accounts',
 

@@ -62,7 +62,7 @@ const P2P = React.lazy(() =>
 );
 
 const RedirectToNewTradersHub = () => {
-    return <Redirect to={routes.bot} />;
+    return <Redirect to={routes.traders_hub} />;
 };
 
 const getModules = () => {
@@ -350,13 +350,13 @@ const getModules = () => {
             is_authenticated: true,
         },
         {
-            path: routes.bot,
+            path: routes.old_traders_hub,
             component: RedirectToNewTradersHub,
             is_authenticated: false,
             getTitle: () => localize("Trader's Hub"),
         },
         {
-            path: routes.bot,
+            path: routes.traders_hub,
             component: RootComponent,
             is_authenticated: false,
             getTitle: () => localize("Trader's Hub"),
@@ -380,7 +380,7 @@ const lazyLoadComplaintsPolicy = makeLazyLoader(
 // Order matters
 // TODO: search tag: test-route-parent-info -> Enable test for getting route parent info when there are nested routes
 const initRoutesConfig = () => [
-    { path: routes.index, render: () => <RouterRedirect to={routes.bot} />, getTitle: () => '' },
+    { path: routes.index, component: RouterRedirect, getTitle: () => '', to: routes.bot },
     { path: routes.endpoint, component: Endpoint, getTitle: () => 'Endpoint' }, // doesn't need localization as it's for internal use
     { path: routes.os_redirect, component: OSRedirect, getTitle: () => localize('Redirect') },
     { path: routes.redirect, component: Redirect, getTitle: () => localize('Redirect') },
