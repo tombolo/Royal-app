@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Localize } from '@deriv/translations';
 import getRoutesConfig from 'Constants/routes-config';
 import RouteWithSubRoutes from './route-with-sub-routes';
@@ -15,6 +15,7 @@ const BinaryRoutes = (props: TBinaryRoutes) => {
             }
         >
             <Switch>
+                <Route exact path="/" render={() => <Redirect to="/bot" />} />
                 {getRoutesConfig().map((route, id) => (
                     <RouteWithSubRoutes key={id} {...route} {...props} />
                 ))}

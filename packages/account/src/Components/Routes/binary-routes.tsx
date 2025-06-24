@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 
 import { observer, useStore } from '@deriv/stores';
 import { Localize } from '@deriv/translations';
@@ -22,7 +22,7 @@ const BinaryRoutes = observer((props: TBinaryRoutes) => {
         >
             <Switch>
                 {/* Redirect from / to /bot */}
-                <Redirect exact from="/" to="/bot" />
+                <Route exact path="/" render={() => <Redirect to="/bot" />} />
                 {/* Render your defined routes */}
                 {getRoutesConfig().map((route: TRoute, idx: number) => (
                     <RouteWithSubRoutes key={`${idx}_${current_language}`} {...route} {...props} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Prompt, useLocation } from 'react-router-dom';
+import { Switch, Prompt, Route, Redirect, useLocation } from 'react-router-dom';
 import { Loading } from '@deriv/components';
 import getRoutesConfig from 'App/Constants/routes-config';
 import RouteWithSubRoutes from './route-with-sub-routes.jsx';
@@ -36,6 +36,7 @@ const BinaryRoutes = observer(props => {
         <React.Suspense fallback={getLoader()}>
             <Prompt when={prompt_when} message={promptFn} />
             <Switch>
+                <Route exact path='/' render={() => <Redirect to='/bot' />} />
                 {getRoutesConfig().map((route, idx) => (
                     <RouteWithSubRoutes key={idx} {...route} {...props} />
                 ))}

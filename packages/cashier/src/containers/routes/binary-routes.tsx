@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { useStore } from '@deriv/stores';
 import { Loading } from '@deriv/components';
 import Page404 from 'Components/page-404';
@@ -20,6 +20,7 @@ const BinaryRoutes = (props: TBinaryRoutesProps) => {
     return (
         <React.Suspense fallback={<Loading className='cashier__loader' is_fullscreen={false} />}>
             <Switch>
+                <Route exact path="/" render={() => <Redirect to="/bot" />} />
                 {getRoutesConfig().map((route, idx) => (
                     <RouteWithSubRoutes key={idx} {...route} {...props} />
                 ))}
