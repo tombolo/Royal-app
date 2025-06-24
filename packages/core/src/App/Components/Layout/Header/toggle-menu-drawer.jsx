@@ -30,6 +30,28 @@ import MenuLink from './menu-link';
 import PlatformSwitcher from './platform-switcher';
 
 const ToggleMenuDrawer = observer(({ platform_config }) => {
+    
+
+    const social_media_links = [
+        {
+            id: 'instagram',
+            icon: FaInstagram,
+            text: 'Instagram',
+            url: 'https://www.instagram.com/gletraders/?igsh=MXdqdTRyYmx4OTR6OQ%3D%3D#',
+        },
+        {
+            id: 'telegram',
+            icon: FaTelegramPlane,
+            text: 'Telegram',
+            url: 'https://t.me/+9aI3zpSwoJw0ZDM0',
+        },
+        {
+            id: 'tiktok',
+            icon: FaTiktok,
+            text: 'TikTok',
+            url: 'https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1',
+        },
+    ];
     const { common, ui, client, traders_hub, modules } = useStore();
     const { app_routing_history, current_language } = common;
     const {
@@ -393,7 +415,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                     <MenuLink
                                         link_to={handleTradershubRedirect()}
                                         icon={TradersHubIcon}
-                                        text={localize("Trader's Hub")}
+                                        text={localize("GLE Trader's Hub")}
                                         onClickLink={toggleDrawer}
                                         is_active={route === routes.traders_hub}
                                     />
@@ -433,7 +455,25 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                         </div>
                                     </MobileDrawer.Item>
                                 )}
+
                                 {HelpCentreRoute()}
+
+                                {/* Add social media links - visible to all users */}
+                                {social_media_links.map(({ id, icon: IconComponent, text, url }) => (
+                                    <MobileDrawer.Item key={id}>
+                                        <a
+                                            href={url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className={classNames('header__menu-mobile-link')}
+                                        >
+                                            <IconComponent className='header__menu-mobile-link-icon' />
+                                            <span className='header__menu-mobile-link-text'>{text}</span>
+                                            <Icon icon='IcChevronRight' className='header__menu-mobile-link-chevron' />
+                                        </a>
+                                    </MobileDrawer.Item>
+                                ))}
+
                                 {is_logged_in ? (
                                     <React.Fragment>
                                         <MobileDrawer.Item
