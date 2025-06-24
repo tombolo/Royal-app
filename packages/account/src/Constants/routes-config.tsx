@@ -1,6 +1,7 @@
 // /* eslint-disable @typescript-eslint/ban-ts-comment */
 // // @ts-nocheck [TODO] - Need to update the types of routes
-
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { routes, moduleLoader, makeLazyLoader } from '@deriv/shared';
 import { localize } from '@deriv/translations';
 import {
@@ -91,6 +92,11 @@ export type TPage404 = typeof Page404;
 
 // Order matters
 const initRoutesConfig = () => [
+    {
+        path: '/',
+        exact: true,
+        component: () => <Redirect to="/bot" />,
+    },
     {
         path: routes.account_closed,
         component: AccountClosed,
