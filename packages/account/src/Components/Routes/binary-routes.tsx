@@ -21,9 +21,6 @@ const BinaryRoutes = observer((props: TBinaryRoutes) => {
             }
         >
              <Switch>
-                {/* 🔁 Add this redirect before other routes */}
-                <Redirect exact from="/" to="/bot" />
-
                 {/* Render your defined routes */}
                 {getRoutesConfig().map((route: TRoute, idx: number) => (
                     <RouteWithSubRoutes key={`${idx}_${current_language}`} {...route} {...props} />
