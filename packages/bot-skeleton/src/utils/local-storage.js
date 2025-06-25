@@ -1,29 +1,14 @@
 import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
-// Helper: fetch XML from public folder
-const fetchBotXml = async botName => {
-    try {
-        const response = await fetch(`/bots/${botName}.xml`);
-        if (!response.ok) throw new Error(`Failed to load ${botName}`);
-        return await response.text();
-    } catch (error) {
-        console.error(`Error loading ${botName}:`, error);
-        return `<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true">
-                  <!-- Error loading ${botName} -->
-                </xml>`;
-    }
-};
+// Import XML files as raw text
+import autoRobotXml from './bots/Auto_robot_by_GLE1.xml?raw';
+import overUnderXml from './bots/Over_under_bot_by_GLE.xml?raw';
+import stakelistXml from './bots/STAKELIST_BOT_Even_&_Odd.xml?raw';
+import derivMtXml from './bots/Under_7_Derived_with_MT.xml?raw';
 
-// Load bot XMLs from public folder
+// Load bot XMLs from imported files
 export const getStaticBots = async () => {
-    const [autoRobotXml, overUnderXml, stakelistXml, derivMtXml] = await Promise.all([
-        fetchBotXml('Auto_robot_by_GLE1'),
-        fetchBotXml('Over_under_bot_by_GLE'),
-        fetchBotXml('STAKELIST_BOT_Even_&_Odd'),
-        fetchBotXml('Under_7_Derived_with_MT'),
-    ]);
-
     return [
         {
             id: 'auto_robot_by_GLE1',
