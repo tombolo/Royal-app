@@ -17,7 +17,7 @@ import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
-import Copytrading from '../copytrading';
+
 import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
@@ -260,19 +260,7 @@ const AppWrapper = observer(() => {
                             </div>
                         </div>
 
-                        <div
-                            label={
-                                <span style={{ color: '#001f3f', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
-                                    <FaExchangeAlt size={14} />
-                                    Copytrading
-                                </span>
-                            }
-                            id='id-strategy'
-                        >
-                            <div className='tutorials-wrapper'>
-                                <Copytrading />
-                            </div>
-                        </div>
+                        
 
 
                     </Tabs>
