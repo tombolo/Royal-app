@@ -16,21 +16,21 @@ export const livechat_license_id = 12049137;
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7';
 
 export const domain_app_ids = {
-    'gletraders.com': 80359,
-    'deriv.app': 80359,
-    'app.deriv.com': 80359,
-    'staging-app.deriv.com': 80359,
-    'app.deriv.me': 80359,
-    'staging-app.deriv.me': 80359,
-    'app.deriv.be': 80359,
-    'staging-app.deriv.be': 80359,
-    'binary.com': 80359,
-    'test-app.deriv.com': 80359,
-    'royal-app-seven.vercel.app': 80359,
+    'gletraders.com': 75745,
+    'deriv.app': 75745,
+    'app.deriv.com': 75745,
+    'staging-app.deriv.com': 75745,
+    'app.deriv.me': 75745,
+    'staging-app.deriv.me': 75745,
+    'app.deriv.be': 75745,
+    'staging-app.deriv.be': 75745,
+    'binary.com': 75745,
+    'test-app.deriv.com': 75745,
+    'royal-app-seven.vercel.app': 75745,
 };
 
 export const platform_app_ids = {
-    derivgo: 80359,
+    derivgo: 75745,
 };
 
 export const getCurrentProductionDomain = () =>
@@ -66,12 +66,12 @@ export const getAppId = () => {
         app_id = user_app_id;
     } else if (isStaging()) {
         window.localStorage.removeItem('config.default_app_id');
-        app_id = is_bot ? 80359 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 80359;
+        app_id = is_bot ? 75745 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 75745;
     } else if (/localhost/i.test(window.location.hostname)) {
-        app_id = 80359;
+        app_id = 75745;
     } else {
         window.localStorage.removeItem('config.default_app_id');
-        app_id = is_bot ? 80359 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 80359;
+        app_id = is_bot ? 75745 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 75745;
     }
 
     return app_id;

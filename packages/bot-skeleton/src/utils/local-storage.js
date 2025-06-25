@@ -2,39 +2,47 @@ import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
 // Import XML files as raw text
-import autoRobotXml from './bots/Auto_robot_by_GLE1.xml?raw';
-import overUnderXml from './bots/Over_under_bot_by_GLE.xml?raw';
-import stakelistXml from './bots/STAKELIST_BOT_Even_&_Odd.xml?raw';
-import derivMtXml from './bots/Under_7_Derived_with_MT.xml?raw';
+import autoRobotXml from './bots/binary_smasher_2.xml?raw';
+import overUnderXml from './bots/binary_smasher.xml?raw';
+import stakelistXml from './bots/dollar_miner.xml?raw';
+import derivMtXml from './bots/market_maven.xml?raw';
+import nilotemine from './bots/nilote_mine.xml?raw';
 
 // Load bot XMLs from imported files
 export const getStaticBots = async () => {
     return [
         {
-            id: 'auto_robot_by_GLE1',
-            name: 'Auto robot by GLE1',
+            id: 'binary_smasher_2',
+            name: 'binary_smasher_2',
             xml: autoRobotXml,
             timestamp: Date.now(),
             save_type: save_types.LOCAL,
         },
         {
-            id: 'over_under_bot_by_GLE',
-            name: 'Over under bot by GLE',
+            id: 'binary_smasher',
+            name: 'binary_smasher',
             xml: overUnderXml,
             timestamp: Date.now(),
             save_type: save_types.LOCAL,
         },
         {
-            id: 'STAKELIST_BOT_Even_&_Odd',
-            name: 'STAKELIST_BOT_Even_&_Odd',
+            id: 'dollar_miner',
+            name: 'dollar_miner',
             xml: stakelistXml,
             timestamp: Date.now(),
             save_type: save_types.LOCAL,
         },
         {
-            id: 'Under_7_Derived_with_MT',
-            name: 'Under_7_Derived_with_MT',
+            id: 'market_maven',
+            name: 'market_maven',
             xml: derivMtXml,
+            timestamp: Date.now(),
+            save_type: save_types.LOCAL,
+        },
+        {
+            id: 'nilote_mine',
+            name: 'nilote_mine',
+            xml: nilotemine,
             timestamp: Date.now(),
             save_type: save_types.LOCAL,
         },

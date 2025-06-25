@@ -15,14 +15,14 @@ const platform_config: TPlatformConfig[] = [
         icon: getPlatformSettings('trader').icon,
         title: () => getPlatformSettings('trader').name,
         name: getPlatformSettings('trader').name,
-        description: () => localize('A whole new trading experience on a powerful yet easy to use platform.'),
+        description: () => localize('D TRADER'),
         link_to: routes.trade,
     },
     {
         icon: getPlatformSettings('dbot').icon,
         title: () => getPlatformSettings('dbot').name,
         name: getPlatformSettings('dbot').name,
-        description: () => localize('Automated trading at your fingertips. No coding needed.'),
+        description: () => localize('D BOT'),
         href: routes.bot,
     },
 ];
