@@ -17,12 +17,13 @@ import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
+import Copytrading from '../copytrading';
 import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
 import RiskManagementCalculator from '../riskManagementCalculator';
 import Strategy from '../strategy';
-import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt, FaRobot, FaTachometerAlt } from 'react-icons/fa';
+import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaExchangeAlt, FaUsers, FaShieldAlt, FaRobot, FaTachometerAlt } from 'react-icons/fa';
 
 
 const AppWrapper = observer(() => {
@@ -256,6 +257,20 @@ const AppWrapper = observer(() => {
                         >
                             <div className='tutorials-wrapper'>
                                 <Strategy />
+                            </div>
+                        </div>
+
+                        <div
+                            label={
+                                <span style={{ color: '#001f3f', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaExchangeAlt size={14} />
+                                    Copytrading
+                                </span>
+                            }
+                            id='id-strategy'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <Copytrading />
                             </div>
                         </div>
 
