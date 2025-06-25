@@ -129,18 +129,12 @@
     padding: 1.8rem 1.2rem;
     border-radius: 12px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 210, 255, 0.2);
+    border: 1px solid rgba(0, 210, 255, 0.2); // Single border declaration
     
     &:hover {
         transform: translateY(-5px);
         background: rgba(0, 210, 255, 0.15);
         box-shadow: 0 10px 20px rgba(0, 210, 255, 0.1);
-    }
-    
-    p {
-        margin-top: 1rem;
-        font-size: 1rem;
-        opacity: 0.9;
     }
 }
 
