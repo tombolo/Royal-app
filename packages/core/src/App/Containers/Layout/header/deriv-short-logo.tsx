@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticUrl } from '@deriv/components';
-import LOGO from '../../../Logo/LOGO5.png'; // Correct relative path
+import LOGO from '../../../Logo/LOGO.png'; // Correct relative path
 
 const DerivShortLogo = () => {
     return (
