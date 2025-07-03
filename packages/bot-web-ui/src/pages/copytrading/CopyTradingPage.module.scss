@@ -1,0 +1,261 @@
+.container {
+    height: 75vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    color: #ffffff;
+    padding: 16px;
+    font-family: 'Arial', sans-serif;
+    overflow: auto;
+}
+
+.card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1f2937;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 100%;
+}
+
+.header {
+    background-color: #4f46e5;
+    padding: 24px;
+    color: #ffffff;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitle {
+    color: #a5b4fc;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.connectionStatus {
+    display: flex;
+    align-items: center;
+}
+
+.statusIndicator {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.connected {
+    background-color: #34d399;
+}
+
+.disconnected {
+    background-color: #ef4444;
+}
+
+.warning {
+    background-color: #f59e0b;
+}
+
+.content {
+    padding: 24px;
+    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #374151;
+    margin-bottom: 24px;
+}
+
+.tabButton {
+    padding: 8px 16px;
+    font-weight: 600;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+
+    &:hover {
+        color: #818cf8;
+    }
+}
+
+.activeTab {
+    color: #818cf8;
+    border-bottom-color: #818cf8;
+}
+
+.controlsContainer {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+}
+
+.section {
+    background-color: #374151;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.section h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.formGroup {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    background-color: #111827;
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.2s;
+
+    &:focus {
+        border-color: #818cf8;
+    }
+}
+
+.helperText {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.actionButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.button {
+    flex: 1;
+    min-width: 200px;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primaryButton {
+    background-color: #4f46e5;
+
+    &:hover:not(:disabled) {
+        background-color: #4338ca;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+}
+
+.dangerButton {
+    background-color: #dc2626;
+
+    &:hover:not(:disabled) {
+        background-color: #b91c1c;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.statusGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.statusCard {
+    background-color: #1f2937;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.statusRow {
+    display: flex;
+    align-items: center;
+}
+
+.statusCard p {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-top: 8px;
+}
+
+.responseContainer {
+    background-color: #111827;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 500px;
+    width: 100%;
+}
+
+.responseContent {
+    font-size: 14px;
+    color: #d1d5db;
+    background-color: #1f2937;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.footer {
+    background-color: #111827;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
