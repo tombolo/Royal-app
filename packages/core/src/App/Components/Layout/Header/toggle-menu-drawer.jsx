@@ -375,7 +375,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                 </MobileDrawer.Item>
                                 <MobileDrawer.Item>
                                     <a
-                                        href='https://www.instagram.com/gletraders?igsh=MXdqdTRyYmx4OTR6OQ=='
+                                        href='https://www.instagram.com/nilote_gramm/#'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         className='header__menu-mobile-link'
@@ -388,7 +388,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                 {/* Telegram */}
                                 <MobileDrawer.Item>
                                     <a
-                                        href='https://t.me/+9aI3zpSwoJw0ZDM0'
+                                        href='https://t.me/vviptraderswithnilote'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         className='header__menu-mobile-link'
@@ -401,7 +401,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                 {/* TikTok */}
                                 <MobileDrawer.Item>
                                     <a
-                                        href='https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1'
+                                        href='https://www.tiktok.com/@nilote_gram?_t=ZM-8vkvoV9Hwf7&_r=1'
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         className='header__menu-mobile-link'

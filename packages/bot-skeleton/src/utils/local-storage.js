@@ -2,40 +2,18 @@ import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
 // Import XML files as raw text
-import autoRobotXml from './bots/binary_smasher_2.xml?raw';
+
 import overUnderXml from './bots/binary_smasher.xml?raw';
-import stakelistXml from './bots/dollar_miner.xml?raw';
-import derivMtXml from './bots/market_maven.xml?raw';
 import nilotemine from './bots/nilote_mine.xml?raw';
 
 // Load bot XMLs from imported files
 export const getStaticBots = async () => {
     return [
-        {
-            id: 'binary_smasher_2',
-            name: 'binary_smasher_2',
-            xml: autoRobotXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
+        
         {
             id: 'binary_smasher',
             name: 'binary_smasher',
             xml: overUnderXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-        {
-            id: 'dollar_miner',
-            name: 'dollar_miner',
-            xml: stakelistXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-        {
-            id: 'market_maven',
-            name: 'market_maven',
-            xml: derivMtXml,
             timestamp: Date.now(),
             save_type: save_types.LOCAL,
         },
