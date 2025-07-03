@@ -24,7 +24,6 @@ import RiskManagementCalculator from '../riskManagementCalculator';
 import Strategy from '../strategy';
 import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt, FaRobot, FaTachometerAlt } from 'react-icons/fa';
 import Copytrading from '../copytrading';
-import Trader from '../trader';
 
 
 
@@ -222,18 +221,6 @@ const AppWrapper = observer(() => {
                             <div className='tutorials-wrapper'>
                                 <Tutorial handleTabChange={handleTabChange} />
                             </div>
-                        </div>
-
-                        <div
-                            label={
-                                <span style={{ color: '#FFFFFF', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
-                                    <FaTachometerAlt size={14} />
-                                    D Trader
-                                </span>
-                            }
-                            id='id-trader'
-                        >
-                            <Trader />
                         </div>
 
 
