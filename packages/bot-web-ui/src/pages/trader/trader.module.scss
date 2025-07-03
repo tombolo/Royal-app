@@ -1,14 +1,57 @@
 .container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #ffffff;
-  }
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iframe {
+  width: 95%;
+  height: 75vh;
+  border: none;
+  margin-left: 10px;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.fallback {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
   
-  .iframe {
-    width: 95%;
-    height: 75vh;
-    border: none;
-    margin-left: 10px;
+  p {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 1.1rem;
   }
+}
+
+.redirectButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
   
+  &:hover {
+      background-color: #45a049;
+  }
+}

@@ -23,7 +23,6 @@ import Finesttool from '../finesttool';
 import RiskManagementCalculator from '../riskManagementCalculator';
 import Strategy from '../strategy';
 import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt, FaRobot, FaTachometerAlt } from 'react-icons/fa';
-import Nilotebots from '../nilotebots';
 import Copytrading from '../copytrading';
 import Trader from '../trader';
 
