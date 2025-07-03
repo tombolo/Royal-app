@@ -27,7 +27,7 @@ const TraderPage = () => {
                     <>
                         {isLoading && <div className={styles.loading}>Loading trader platform...</div>}
                         <iframe
-                            src="https://finest-derivapp.vercel.app/dtrader"
+                            src="https://royal-app-seven.vercel.app/dtrader"
                             title="Finest Analysis"
                             className={styles.iframe}
                             allowFullScreen
