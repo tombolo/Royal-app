@@ -2,7 +2,7 @@ import { getUrlSmartTrader } from '../url/helpers';
 
 export const routes = {
     callback_page: '/callback',
-    reset_password: '/',
+    reset_password: '/reset-password',
     error404: '/404',
     index: '/index',
     redirect: '/redirect',
@@ -81,7 +81,7 @@ export const routes = {
 
     // Appstore
     old_traders_hub: '/appstore/traders-hub',
-    traders_hub: '/',
+    traders_hub: '/bot',
     onboarding: '/onboarding',
     compare_cfds: '/cfd-compare-accounts',
 
